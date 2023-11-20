@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CustomStateBox.qml</file>
+        <file>StateBox.qml</file>
+        <file>ToolBox.qml</file>
+        <file>StateFuncs.qml</file>
+        <file>StateBoxTerminals.qml</file>
+        <file>StateBoxLines.qml</file>
+        <file>WorkSpace.qml</file>
+        <file>MyMenuBar.qml</file>
+    </qresource>
+</RCC>
