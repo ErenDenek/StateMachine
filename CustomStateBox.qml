@@ -1,22 +1,33 @@
 import QtQuick 2.0
+import QtQuick.Effects
 
 Item{
     anchors.fill: parent
-
+    property int gridSize: 20  // Grid arası mesafe
+    MultiEffect {
+        source: stateBoxId
+        anchors.fill: stateBoxId
+        brightness: 0.2
+        saturation: 0.2
+        blurEnabled: true
+        blurMax: 64
+        blur: 0.5
+        shadowBlur: 0.5
+        shadowColor: '#b0fe9d'
+        shadowEnabled: true
+    }
     Rectangle{
         id: stateBoxId;
-        radius: 10
-        border.width: 2
+        radius: 5
+        border.width: 0
         height: 100; width: 200
-        color: "transparent"
-        border.color: "black"
+        color: "#5784a7"
+        border.color: "gray"
         focus: false
-
         Keys.onPressed: {
             if (event.key === Qt.Key_Delete) {
                 stateBoxConnLines.remove(index);
                 stateBoxProperties.remove(index);
-
             }
         }
 
@@ -46,8 +57,8 @@ Item{
                 top: stateBoxId.top
                 topMargin: 20
             }
-            height: 2; width: stateBoxId.width
-            color: "black";
+            height: 1; width: stateBoxId.width
+            color:  "#1e1a39";
         }
 
 
@@ -56,7 +67,9 @@ Item{
             anchors.horizontalCenter: parent.horizontalCenter
             text: "no name!"
             z: 100;
-
+            color:"white"
+            font.pixelSize: 14
+            font.family: "Roboto"
             Keys.onEnterPressed: stateBoxProperties.setName(index, text);
         }
 
@@ -111,12 +124,16 @@ Item{
                 //stateBoxConnection.nestedControl(index);//!todo buradaki fonksiyonları düzelt.
                 drag.target = parent;
                 resizing = false
-
+                /*------------------Moving by gridsize---------------*/
+                parent.x = Math.round(parent.x / gridSize) * gridSize;
+                parent.y = Math.round(parent.y / gridSize) * gridSize;
+                /*----------------------------------------------------*/
 
             }
 
             //Küçültme büyütme işlemi
-            property real mouseX;
+
+            /*property real mouseX;
             property real mouseY;
             onPositionChanged: {
 
@@ -131,7 +148,7 @@ Item{
                 }
                 mouseX= mouse.x
                 mouseY = mouse.y
-            }
+            }*/
         }
     }
 }

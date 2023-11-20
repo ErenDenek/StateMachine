@@ -9,5 +9,17 @@
         <file>StateBoxLines.qml</file>
         <file>WorkSpace.qml</file>
         <file>MyMenuBar.qml</file>
+        <file>LineGuide.qml</file>
+        <file>MenuBox.qml</file>
+        <file>assets/add_circle_black_24dp.svg</file>
+        <file>assets/file-solid.svg</file>
+        <file>assets/folder_open_black_24dp.svg</file>
+        <file>assets/grid_off_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>assets/grid_on_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>assets/menu_black_24dp.svg</file>
+        <file>assets/menu_open_black_24dp.svg</file>
+        <file>assets/save_black_24dp.svg</file>
+        <file>assets/zoom_in_black_24dp.svg</file>
+        <file>assets/zoom_out_black_24dp.svg</file>
     </qresource>
 </RCC>

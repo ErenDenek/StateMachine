@@ -1,66 +1,73 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 Item {
-    property bool glowVisible: false
-    anchors.fill: parent
+    height: parent.height-100
+    anchors.verticalCenter: parent.verticalCenter
+    Rectangle {
+        width: 40
+        height: parent.height-100
+        color: "#343058"
+        radius:5
 
-    Rectangle{
-        id: ghostStateBoxId;
-        radius: 3
-        border.width: 2
-        height: 25; width: 50
-        opacity: 0
-        color: "transparent"
-        border.color: "black"
+        Column {
+            spacing: 10
+            Button{
 
-        Rectangle{
-            anchors {
-                horizontalCenter: ghostStateBoxId.horizontalCenter
-                top: ghostStateBoxId.top
-                topMargin: 5
+                id: stateBoxId;
+                height: 40; width: 40
+                flat:true
+                Image {
+                    source: "qrc:/assets/add_circle_black_24dp.svg"
+                    width: 24
+                    height: 24
+                    anchors.centerIn: parent
+                    fillMode: Image.PreserveAspectFit
+
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    drag.target: parent
+
+                    onReleased: {
+                        stateBoxProperties.newStateBox(stateBoxId.x, stateBoxId.y);
+                        stateBoxId.x = 0; stateBoxId.y = 0;
+                    }
+                }
+                background: Rectangle {
+                    color: stateBoxId.hovered ? "#766898" : "transparent"
+                    radius: 5
+                }
+
             }
-            height: 2; width: ghostStateBoxId.width
-            color: "black";
-        }
-    }
+            Button {
+                id:gridButton
+                width: 40
+                height: 40
+                flat:true
+                Image {
+                    source: lineGuide.guideLinesVisible ? "qrc:/assets/grid_off_FILL0_wght400_GRAD0_opsz24.svg":"qrc:/assets/grid_on_FILL0_wght400_GRAD0_opsz24.svg"
+                    width: 24
+                    height: 24
+                    anchors.centerIn: parent
+                    fillMode: Image.PreserveAspectFit
 
-    Rectangle{
-        id: stateBoxId;
-        radius: 3
-        border.width: 2
-        height: 25; width: 50
-        color: "transparent"
-        border.color: "black"
-
-        Rectangle{
-            anchors {
-                horizontalCenter: stateBoxId.horizontalCenter
-                top: stateBoxId.top
-                topMargin: 5
+                }
+                onClicked: {
+                    if (lineGuide.guideLinesVisible) {
+                        lineGuide.hideGuideLines();
+                    } else {
+                        lineGuide.showGuideLines();
+                    }
+                }
+                background: Rectangle {
+                    color: gridButton.hovered ? "#766898" : "transparent"
+                    radius: 5
+                }
             }
-            height: 2; width: stateBoxId.width
-            color: "black";
+            anchors.verticalCenter: parent.verticalCenter  // Yatay ortalamak için
+            anchors.horizontalCenter: parent.horizontalCenter // İsteğe bağlı olarak aşağı kaydırmak için
         }
-
-        onXChanged: ghostStateBoxId.opacity = 1;
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            drag.target: parent
-
-            onReleased: {
-                stateBoxProperties.newStateBox(stateBoxId.x, stateBoxId.y);
-
-                stateBoxId.x = 0; stateBoxId.y = 0;
-                ghostStateBoxId.opacity = 0
-            }
-
-            //            onEntered: switchOnGlow.visible = true;
-            //            onExited:  switchOnGlow.visible = false;
-        }
-
-
     }
 }

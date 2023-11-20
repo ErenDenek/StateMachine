@@ -7,16 +7,19 @@ ApplicationWindow {
     width: 1920
     height: 1280
 
-    //menubar
-    MyMenuBar{
+    LineGuide
+    {
+        id:lineGuide
+    }
+    MenuBox
+    {
 
     }
-
-    /*ToolBox{
-        anchors.topMargin: 60
+    ToolBox
+    {
+        visible:false
+        id: toolbox
     }
-    */
-
     WorkSpace
     {
 

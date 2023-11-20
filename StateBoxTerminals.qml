@@ -42,7 +42,7 @@ Item {
             id:markedCircleId
             width: circleR; height: circleR;
             radius: 15;
-            color: "cyan";
+            color: "#afff9c";
         }
 
         Timer {
@@ -71,7 +71,7 @@ Item {
                 radius: 15;
                 x: (index * (parent.width / 4.1)) + (parent.width / 4.1)
                 y: parent.y - 3;
-                color: "cyan";
+                color: "#afff9c";
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -92,7 +92,7 @@ Item {
                 radius: 15;
                 x: (index * (parent.width / 4.1)) + (parent.width / 4.1)
                 y: parent.height - 3
-                color: "cyan";
+                color: "#afff9c";
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -113,7 +113,7 @@ Item {
                 radius: 15;
                 y: (index * (parent.height / 4.1)) + (parent.height / 4.1)
                 x: parent.width - 3
-                color: "cyan";
+                color: "#afff9c";
                 MouseArea{
                     anchors.fill: parent
 
@@ -135,7 +135,7 @@ Item {
                 radius: 15;
                 y: (index * (parent.height / 4.1)) + (parent.height / 4.1)
                 x : -2
-                color: "cyan";
+                color: "#afff9c";
                 MouseArea{
                     anchors.fill: parent
 
