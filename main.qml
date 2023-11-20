@@ -7,6 +7,7 @@ ApplicationWindow {
     width: 1920
     height: 1280
 
+    //menubar
     MyMenuBar{
 
     }
@@ -14,8 +15,10 @@ ApplicationWindow {
     /*ToolBox{
         anchors.topMargin: 60
     }
-*/
-    WorkSpace{
+    */
+
+    WorkSpace
+    {
 
     }
 }
