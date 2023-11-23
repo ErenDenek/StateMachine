@@ -18,6 +18,10 @@ Item {
         guideLinesVisible = false;
     }
 
+    Rectangle{
+        height: parent.height
+        width: parent.width
+        color:"#1B1B1B"
     // Dikey kılavuz çizgileri
     Repeater {
         model: parent.width / gridSize  // 20 birim aralıklarla dikey çizgiler
@@ -26,6 +30,7 @@ Item {
             height: parent.height
             color: guideLinesVisible ? "lightgray" : "transparent"
             x: modelData * gridSize
+            opacity: 0.2
         }
     }
     // Yatay kılavuz çizgileri
@@ -36,6 +41,8 @@ Item {
             height: 1
             color: guideLinesVisible ? "lightgray" : "transparent"
             y: modelData * gridSize
+            opacity:0.2
         }
+    }
     }
 }

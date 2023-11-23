@@ -19,9 +19,10 @@ Item{
     Rectangle{
         id: stateBoxId;
         radius: 5
-        border.width: 0
-        height: 100; width: 200
-        color: "#5784a7"
+        border.width: 2
+        height: 100
+        width: 200
+        color: "#1B1B1B"
         border.color: "gray"
         focus: false
         Keys.onPressed: {
@@ -58,7 +59,7 @@ Item{
                 topMargin: 20
             }
             height: 1; width: stateBoxId.width
-            color:  "#1e1a39";
+            color:  "gray";
         }
 
 
@@ -82,7 +83,6 @@ Item{
             stateBoxProperties.setY(index, y);
             stateBoxConnLines.lineReCalculation(index);
         }
-
 
         MouseArea {
             property bool resizing: false

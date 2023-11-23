@@ -16,10 +16,10 @@ Item {
         timer.running = marked;
     }
 
-    Item{
+    /*Item{
         anchors.fill: parent
-
         Rectangle{
+            color:"transparent" // bu dikdörtgen neden var ? bir şeyleri etkiliyor.
             anchors.fill: parent
             MouseArea{
                 anchors.fill: parent
@@ -33,7 +33,7 @@ Item {
                 }
             }
         }
-    }
+    }*/
 
     Item {
         id: activeTerminalId
@@ -43,6 +43,7 @@ Item {
             width: circleR; height: circleR;
             radius: 15;
             color: "#afff9c";
+
         }
 
         Timer {
